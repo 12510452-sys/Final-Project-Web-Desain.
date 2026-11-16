@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk - Healthy Lifestyle</title>
+  <meta name="description" content="Masuk atau daftar untuk menyimpan checklist sehat harianmu.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bs-body-font-family: "DM Sans", system-ui, sans-serif; --bs-body-color: #14281f; --bs-border-color: #d3e1d8; --bs-success: #2e8b57; --bs-success-rgb: 46,139,87; }
+    h1, h2, h3, .navbar-brand { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-weight: 800; }
+    .btn-success { --bs-btn-bg: #2e8b57; --bs-btn-border-color: #2e8b57; --bs-btn-hover-bg: #26744a; --bs-btn-hover-border-color: #26744a; }
+    .hero { background: radial-gradient(500px 250px at 100% 0, #2f8fc433, transparent 70%), radial-gradient(500px 250px at 0 100%, #2e8b5733, transparent 70%), #fff; }
+    .title span { background: linear-gradient(90deg, #2e8b57, #2f8fc4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .form-check-input:checked { background-color: var(--bs-success); border-color: var(--bs-success); }
+    .auth-tabs { --bs-nav-pills-link-active-bg: #2e8b57; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md sticky-top bg-white bg-opacity-75 border-bottom" style="backdrop-filter:blur(10px)">
+    <div class="container" style="max-width:1040px">
+      <a class="navbar-brand" href="index.html#home">Healthy Lifestyle</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Buka menu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <ul class="nav nav-pills fw-semibold pt-2 pt-md-0" style="--bs-nav-pills-link-active-bg:#14281f">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#makanan-sehat">Makanan Sehat</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#olahraga">Olahraga</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#tips-tidur">Tips Tidur</a></li>
+        </ul>
+        <div class="ms-md-3 pt-2 pt-md-0">
+          <a href="login.html" class="btn btn-success rounded-pill px-4 fw-semibold" aria-current="page">Masuk</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-md-5" style="max-width:1040px">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card hero border rounded-4 shadow p-4 p-md-5">
+          <div class="text-center mb-4">
+            <h1 class="title h2 mb-2">Healthy <span>Lifestyle</span></h1>
+            <p class="text-secondary mb-0" id="authSubtitle">Masuk untuk menyimpan checklist sehat harianmu.</p>
+          </div>
+
+          <ul class="nav nav-pills nav-fill auth-tabs mb-4" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" id="tabMasuk" data-bs-toggle="pill" data-bs-target="#paneMasuk" type="button" role="tab" aria-controls="paneMasuk" aria-selected="true">Masuk</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="tabDaftar" data-bs-toggle="pill" data-bs-target="#paneDaftar" type="button" role="tab" aria-controls="paneDaftar" aria-selected="false">Daftar</button></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="paneMasuk" role="tabpanel" aria-labelledby="tabMasuk" tabindex="0">
+              <form id="formLogin" class="needs-validation" novalidate>
+                <div class="alert alert-danger d-none" role="alert" id="loginError"></div>
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label fw-semibold">Email</label>
+                  <input type="email" class="form-control form-control-lg" id="loginEmail" placeholder="nama@email.com" autocomplete="email" required>
+                  <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPass" class="form-label fw-semibold">Kata sandi</label>
+                  <div class="input-group has-validation">
+                    <input type="password" class="form-control form-control-lg" id="loginPass" placeholder="Kata sandi" autocomplete="current-password" required>
+                    <button class="btn btn-outline-secondary" type="button" data-toggle-pass="loginPass" aria-label="Tampilkan kata sandi">Lihat</button>
+                    <div class="invalid-feedback">Kata sandi wajib diisi.</div>
+                  </div>
+                </div>
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="loginRemember">
+                  <label class="form-check-label" for="loginRemember">Ingat saya di perangkat ini</label>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg rounded-pill w-100">Masuk</button>
+                <p class="text-center text-secondary small mt-3 mb-0">Belum punya akun? <a href="#" class="fw-semibold link-success" data-goto-tab="tabDaftar">Daftar sekarang</a></p>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="paneDaftar" role="tabpanel" aria-labelledby="tabDaftar" tabindex="0">
+              <form id="formDaftar" class="needs-validation" novalidate>
+                <div class="alert alert-danger d-none" role="alert" id="daftarError"></div>
+                <div class="mb-3">
+                  <label for="regNama" class="form-label fw-semibold">Nama lengkap</label>
+                  <input type="text" class="form-control form-control-lg" id="regNama" placeholder="Nama kamu" autocomplete="name" minlength="2" required>
+                  <div class="invalid-feedback">Nama minimal 2 karakter.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="regEmail" class="form-label fw-semibold">Email</label>
+                  <input type="email" class="form-control form-control-lg" id="regEmail" placeholder="nama@email.com" autocomplete="email" required>
+                  <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="regPass" class="form-label fw-semibold">Kata sandi</label>
+                  <div class="input-group has-validation">
+                    <input type="password" class="form-control form-control-lg" id="regPass" placeholder="Minimal 6 karakter" autocomplete="new-password" minlength="6" required>
+                    <button class="btn btn-outline-secondary" type="button" data-toggle-pass="regPass" aria-label="Tampilkan kata sandi">Lihat</button>
+                    <div class="invalid-feedback">Kata sandi minimal 6 karakter.</div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="regPass2" class="form-label fw-semibold">Ulangi kata sandi</label>
+                  <input type="password" class="form-control form-control-lg" id="regPass2" placeholder="Ketik ulang kata sandi" autocomplete="new-password" required>
+                  <div class="invalid-feedback">Kata sandi tidak sama.</div>
+                </div>
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="regSetuju" required>
+                  <label class="form-check-label" for="regSetuju">Saya setuju untuk membuat akun</label>
+                  <div class="invalid-feedback">Centang untuk melanjutkan.</div>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg rounded-pill w-100">Buat akun</button>
+                <p class="text-center text-secondary small mt-3 mb-0">Sudah punya akun? <a href="#" class="fw-semibold link-success" data-goto-tab="tabMasuk">Masuk</a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-top py-4 mt-4 text-secondary small">
+    <div class="container d-flex flex-wrap justify-content-between gap-2" style="max-width:1040px">
+      <span>© <span id="year"></span> Healthy Lifestyle</span><span>Jaga tubuh, jaga pikiran</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const $ = id => document.getElementById(id);
+    const HOME = "index.html";
+    const USERS_KEY = "hl-users", SESSION_KEY = "hl-session";
+
+    const store = {
+      get(k, s = localStorage) { try { return JSON.parse(s.getItem(k)); } catch (e) { return null; } },
+      set(k, v, s = localStorage) { try { s.setItem(k, JSON.stringify(v)); } catch (e) {} },
+      del(k) { try { localStorage.removeItem(k); sessionStorage.removeItem(k); } catch (e) {} }
+    };
+    const getUsers = () => store.get(USERS_KEY) || {};
+    const currentUser = () => store.get(SESSION_KEY) || store.get(SESSION_KEY, sessionStorage);
+
+    async function hashPass(email, pass) {
+      const text = email + "::" + pass;
+      if (window.crypto && crypto.subtle) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2, "0")).join("");
+      }
+      return btoa(unescape(encodeURIComponent(text)));
+    }
+
+    function startSession(user, remember) {
+      store.del(SESSION_KEY);
+      store.set(SESSION_KEY, user, remember ? localStorage : sessionStorage);
+    }
+
+    function showError(id, msg) {
+      const el = $(id);
+      el.textContent = msg || "";
+      el.classList.toggle("d-none", !msg);
+    }
+
+    // Setelah berhasil masuk/daftar, kembali ke halaman yang tadi dituju di index.html
+    function goAfterAuth() {
+      let next = null;
+      try { next = sessionStorage.getItem("hl-next"); sessionStorage.removeItem("hl-next"); } catch (e) {}
+      location.href = HOME + "#" + (next && next !== "login" ? next : "home");
+    }
+
+    // Sudah login? Langsung ke Home
+    if (currentUser()) location.replace(HOME + "#home");
+
+    $("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll("[data-toggle-pass]").forEach(btn => btn.addEventListener("click", () => {
+      const input = $(btn.dataset.togglePass);
+      const hidden = input.type === "password";
+      input.type = hidden ? "text" : "password";
+      btn.textContent = hidden ? "Sembunyi" : "Lihat";
+      btn.setAttribute("aria-label", hidden ? "Sembunyikan kata sandi" : "Tampilkan kata sandi");
+    }));
+
+    document.querySelectorAll("[data-goto-tab]").forEach(a => a.addEventListener("click", e => {
+      e.preventDefault();
+      bootstrap.Tab.getOrCreateInstance($(a.dataset.gotoTab)).show();
+    }));
+
+    document.querySelectorAll("#tabMasuk, #tabDaftar").forEach(t => t.addEventListener("shown.bs.tab", () => {
+      const daftar = t.id === "tabDaftar";
+      $("authSubtitle").textContent = daftar ? "Buat akun gratis untuk memulai kebiasaan sehatmu." : "Masuk untuk menyimpan checklist sehat harianmu.";
+      showError("loginError"); showError("daftarError");
+    }));
+
+    // Buka tab Daftar bila URL berisi #daftar
+    if (location.hash === "#daftar") bootstrap.Tab.getOrCreateInstance($("tabDaftar")).show();
+
+    const syncMatch = () => $("regPass2").setCustomValidity($("regPass2").value === $("regPass").value ? "" : "mismatch");
+    $("regPass").addEventListener("input", syncMatch);
+    $("regPass2").addEventListener("input", syncMatch);
+
+    $("formDaftar").addEventListener("submit", async e => {
+      e.preventDefault();
+      syncMatch();
+      const form = e.target;
+      form.classList.add("was-validated");
+      if (!form.checkValidity()) return;
+      const name = $("regNama").value.trim();
+      const email = $("regEmail").value.trim().toLowerCase();
+      const users = getUsers();
+      if (users[email]) return showError("daftarError", "Email ini sudah terdaftar. Silakan masuk.");
+      users[email] = { name, email, hash: await hashPass(email, $("regPass").value) };
+      store.set(USERS_KEY, users);
+      showError("daftarError");
+      startSession({ name, email }, true);
+      form.reset(); form.classList.remove("was-validated");
+      goAfterAuth();
+    });
+
+    $("formLogin").addEventListener("submit", async e => {
+      e.preventDefault();
+      const form = e.target;
+      form.classList.add("was-validated");
+      if (!form.checkValidity()) return;
+      const email = $("loginEmail").value.trim().toLowerCase();
+      const user = getUsers()[email];
+      const ok = user && user.hash === await hashPass(email, $("loginPass").value);
+      if (!ok) return showError("loginError", "Email atau kata sandi salah.");
+      showError("loginError");
+      startSession({ name: user.name, email }, $("loginRemember").checked);
+      form.reset(); form.classList.remove("was-validated");
+      goAfterAuth();
+    });
+  </script>
+</body>
+</html>
